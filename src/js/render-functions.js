@@ -3,6 +3,7 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 
 const galleryForm = document.querySelector('.gallery');
 const loader = document.querySelector('.loader');
+const loadMoreBtn = document.querySelector('.load-more-btn');
 
 const lightbox = new SimpleLightbox('.gallery-link', {
   captionsData: 'alt',
@@ -22,12 +23,12 @@ export function createGallery(images) {
             loading="lazy" 
           />
         </a>
-        <div class="info">
-          <p class="info-item"><b>Likes:</b> ${likes}</p>
-          <p class="info-item"><b>Views:</b> ${views}</p>
-          <p class="info-item"><b>Comments:</b> ${comments}</p>
-          <p class="info-item"><b>Downloads:</b> ${downloads}</p>
-        </div>
+        <ul class="info">
+          <li class="info-item"><b>Likes</b> ${likes}</li>
+          <li class="info-item"><b>Views</b> ${views}</li>
+          <li class="info-item"><b>Comments</b> ${comments}</li>
+          <li class="info-item"><b>Downloads</b> ${downloads}</li>
+        </ul>
       </li>
     `
     )
@@ -50,4 +51,12 @@ export function hideLoader() {
   if (loader) {
     loader.classList.add('is-hidden');
   }
+}
+
+export function showLoadMoreButton() {
+  if (loadMoreBtn) loadMoreBtn.classList.remove('is-hidden');
+}
+
+export function hideLoadMoreButton() {
+  if (loadMoreBtn) loadMoreBtn.classList.add('is-hidden');
 }
